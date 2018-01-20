@@ -1,0 +1,91 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "App",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "classnames": "^2.2.5",
+    "compression": "^1.7.1",
+    "cross-env": "^5.1.1",
+    "express": "^4.16.2",
+    "express-winston": "^2.4.0",
+    "html-webpack-plugin": "^2.30.1",
+    "http": "0.0.0",
+    "method-override": "^2.3.10",
+    "morgan": "^1.9.0",
+    "nconf": "^0.9.1",
+    "pm2": "^2.8.0",
+    "sass-lint": "^1.12.1",
+    "serve-favicon": "^2.4.5",
+    "url": "^0.11.0",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^1.10.0",
+    "enzyme": "^2.9.1",
+    "eslint": "^4.11.0",
+    "eslint-plugin-react": "^7.5.1",
+    "expect": "^21.2.1",
+    "jsdom": "^9.11.0",
+    "mocha": "^4.0.1",
+    "moxios": "^0.4.0",
+    "ncp": "^2.0.0",
+    "nock": "^9.1.3",
+    "node-sass": "^4.7.2",
+    "node-sass-import": "^1.1.1",
+    "npm-run-all": "^4.1.2",
+    "nyc": "^8.4.0",
+    "react": "^15.6.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "sinon": "^4.1.2",
+    "webpack": "^3.8.1",
+    "webpack-cleanup-plugin": "^0.5.1"
+  },
+  "scripts": {
+    "pm2": "pm2",
+    "startApp": "pm2 start index.js --name app --node-args='--harmony'",
+    "start": "node index.js --harmony",
+    "stopApp": "pm2 stop app",
+    "restart": "pm2 restart app",
+    "prebuild": "npm run lint",
+    "lint": "npm-run-all lint:sass lint:js",
+    "lint:sass": "sass-lint 'public/src/sass/**/*.scss' -v",
+    "lint:js": "eslint . --ext .js",
+    "fixLintErrors": "eslint . --ext .js --fix",
+    "test": "mocha ./test/**/*-test.js",
+    "testCoverage": "nyc --reporter=lcov npm test",
+    "build": "npm-run-all build:js build:css copy:favicon",
+    "build:js": "cross-env NODE_ENV=development webpack --progress --color",
+    "buildDev:js": "cross-env NODE_ENV=development webpack --watch --progress --color",
+    "build:css": "node-sass public/src/sass/index.scss public/assets/css/index.build.css --output-style compressed --importer node_modules/node-sass-import",
+    "buildDev:css": "node-sass public/src/sass/index.scss public/assets/css/index.build.css --watch --importer node_modules/node-sass-import",
+    "copy:favicon": "ncp public/src/favicon.ico/ public/assets/favicon.ico"
+  },
+  "nyc": {
+    "exclude": [
+      "node_modules/*",
+      "test/**/*.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rakshay/financeDashboard"
+  },
+  "author": "Akshay Valiya Rakkanchath",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rakshay/financeDashboard/issues"
+  },
+  "homepage": "https://github.com/Rakshay/financeDashboard#readme"
+}
