@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for views/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">views</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.77% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>30/31</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.77% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>30/31</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17090x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+import React from 'react';
+import * as dataRequests from '../dataRequests';
+import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import Select from 'react-select';
+import classnames from 'classnames';
+&nbsp;
+/**
+ * This react component provides the layout of the application
+ * @class
+ */
+class App extends React.Component {
+  /* istanbul ignore next */
+  /**
+   * Creates an instance of App.
+   * @memberof App
+   */
+  constructor () {
+    super();
+    this.state = {
+      data: [],
+      symbols: [],
+      selectedCompany: 'ATHN',
+      showOpening: true,
+      showClosing: true,
+      showHighest: false,
+      showLowest: false,
+      containerWidth: null
+    };
+    this.handleInputChange = (e) =&gt; this._handleInputChange(e);
+    // this.fitParentContainer = () =&gt; this._fitParentContainer();
+    this.handleCompanyChange = (selectedOption) =&gt; this._handleCompanyChange(selectedOption);
+  }
+&nbsp;
+  /**
+   * Fetches the stock details of the selected company
+   *
+   * @memberof App
+   * @returns {undefined}
+   */
+  fetchStockDetails () {
+    this.setState({
+      isLoading: true,
+      data: []
+    }, () =&gt; {
+      dataRequests.getStock(this.state.selectedCompany)
+        .then((stock) =&gt; {
+          this.setState({
+            data: stock,
+            isLoading: false
+          });
+        })
+        .catch(() =&gt; {
+          this.setState({
+            error: true
+          });
+        });
+    });
+  }
+&nbsp;
+  /* eslint-disable require-jsdoc */
+  componentDidMount () {
+    dataRequests.getSymbols()
+      .then((companies) =&gt; {
+        this.setState({
+          symbols: companies.map((company) =&gt; {
+            return {
+              value: company.symbol,
+              label: company.name
+            };
+          })
+        }, this.fetchStockDetails);
+      })
+      .catch(() =&gt; {
+        this.setState({
+          error: true
+        });
+      });
+  }
+&nbsp;
+  /**
+   * Toggles the chart lines
+   *
+   * @param {object} event The react event object
+   * @memberof App
+   * @returns {undefined}
+   */
+  _handleInputChange (event) {
+    const target = event.target;
+&nbsp;
+    this.setState({
+      [target.name]: target.checked
+    });
+  }
+&nbsp;
+  _handleCompanyChange (selectedOption) {
+<span class="cstat-no" title="statement not covered" >    this.setState({</span>
+      selectedCompany: selectedOption.value
+    }, this.fetchStockDetails);
+  }
+&nbsp;
+  /* eslint-disable require-jsdoc */
+  render () {
+    let lines = [],
+        appClassName = classnames('app', {
+          error: this.state.error
+        }),
+        chartContainerClassName= classnames('chart-container', {
+          loading: this.state.isLoading
+        });
+&nbsp;
+    /* istanbul ignore else */
+    if (this.state.showOpening === true) {
+      lines.push(&lt;Area type="monotone" dataKey="open" stroke="#AF0B0B" fill="url(#open)" activeDot={{r: 8}} /&gt;);
+    }
+    /* istanbul ignore else */
+    if (this.state.showClosing === true) {
+      lines.push(&lt;Area type="monotone" dataKey="close" stroke="#AF550B" fill="url(#close)" activeDot={{r: 8}} /&gt;);
+    }
+    /* istanbul ignore else */
+    if (this.state.showHighest === true) {
+      lines.push(&lt;Area type="monotone" dataKey="high" stroke="#076969" fill="url(#high)" activeDot={{r: 8}} /&gt;);
+    }
+    /* istanbul ignore else */
+    if (this.state.showLowest === true) {
+      lines.push(&lt;Area type="monotone" dataKey="low" stroke="#098C09" fill="url(#low)" activeDot={{r: 8}} /&gt;);
+    }
+&nbsp;
+    return (
+      &lt;div className={appClassName}&gt;
+        &lt;div className="toolbox"&gt;
+          &lt;Select className="symbol-selector" name="form-field-name" value={this.state.selectedCompany} onChange={this.handleCompanyChange} options={this.state.symbols} /&gt;
+          &lt;label&gt;
+            &lt;input name="showOpening" type="checkbox" checked={this.state.showOpening} onChange={this.handleInputChange} /&gt;
+            &lt;span&gt;Show Opening&lt;/span&gt;
+          &lt;/label&gt;
+          &lt;label&gt;
+            &lt;input name="showClosing" type="checkbox" checked={this.state.showClosing} onChange={this.handleInputChange} /&gt;
+            &lt;span&gt;Show Closing&lt;/span&gt;
+          &lt;/label&gt;
+          &lt;label&gt;
+            &lt;input name="showHighest" type="checkbox" checked={this.state.showHighest} onChange={this.handleInputChange} /&gt;
+            &lt;span&gt;Show Highest&lt;/span&gt;
+          &lt;/label&gt;
+          &lt;label&gt;
+            &lt;input name="showLowest" type="checkbox" checked={this.state.showLowest} onChange={this.handleInputChange} /&gt;
+            &lt;span&gt;Show Lowest&lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div className={chartContainerClassName}&gt;
+          &lt;div className="loader"&gt;
+            &lt;div className="spinner" /&gt;
+          &lt;/div&gt;
+          &lt;ResponsiveContainer&gt;
+            &lt;AreaChart data={this.state.data} margin={{top: 5, right: 30, left: 20, bottom: 5}}&gt;
+              &lt;defs&gt;
+                &lt;linearGradient id="high" x1="0" y1="0" x2="0" y2="1"&gt;
+                  &lt;stop offset="5%" stopColor="#076969" stopOpacity={0.8}/&gt;
+                  &lt;stop offset="95%" stopColor="#076969" stopOpacity={0}/&gt;
+                &lt;/linearGradient&gt;
+                &lt;linearGradient id="low" x1="0" y1="0" x2="0" y2="1"&gt;
+                  &lt;stop offset="5%" stopColor="#098C09" stopOpacity={0.8}/&gt;
+                  &lt;stop offset="95%" stopColor="#098C09" stopOpacity={0}/&gt;
+                &lt;/linearGradient&gt;
+                &lt;linearGradient id="close" x1="0" y1="0" x2="0" y2="1"&gt;
+                  &lt;stop offset="5%" stopColor="#AF550B" stopOpacity={0.8}/&gt;
+                  &lt;stop offset="95%" stopColor="#AF550B" stopOpacity={0}/&gt;
+                &lt;/linearGradient&gt;
+                &lt;linearGradient id="open" x1="0" y1="0" x2="0" y2="1"&gt;
+                  &lt;stop offset="5%" stopColor="#AF0B0B" stopOpacity={0.8}/&gt;
+                  &lt;stop offset="95%" stopColor="#AF0B0B" stopOpacity={0}/&gt;
+                &lt;/linearGradient&gt;
+              &lt;/defs&gt;
+              &lt;XAxis dataKey="label"/&gt;
+              &lt;YAxis domain={['dataMin', 'dataMax']} /&gt;
+              &lt;CartesianGrid strokeDasharray="3 3"/&gt;
+              &lt;Tooltip/&gt;
+              &lt;Legend /&gt;
+              {lines}
+            &lt;/AreaChart&gt;
+          &lt;/ResponsiveContainer&gt;
+          {/* &lt;AreaChart data={[data]} width={this.state.containerWidth} /&gt; */}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+&nbsp;
+App.displayName = 'App';
+&nbsp;
+export default App;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jan 26 2018 20:16:45 GMT+0530 (IST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

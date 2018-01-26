@@ -10,63 +10,108 @@ import MockAdapter from 'axios-mock-adapter';
 
 let mock = new MockAdapter(axios);
 
-mock.onGet('/api/books').reply((config) => {
-  if (config.params.pageIndex === 1) {
-    return [200, mockData.page1];
-  } else if (config.params.pageIndex === 2) {
-    return [200, mockData.page2];
-  }
+mock.onGet('https://api.iextrading.com/1.0/stock/ATHN/chart/1m').reply(() => {
+  return [200, mockData.stock];
 });
 
-describe('Checking App Rendering', () => {
+mock.onGet('https://api.iextrading.com/1.0/ref-data/symbols').reply(() => {
+  return [200, mockData.companies];
+});
+
+describe('Checking App Rendering', function () {
   let app = mount(<App />);
+  this.timeout(10000);
 
   it('App is rendered', () => {
-    expect(app.find('GoodReadsApp').length).toEqual(1);
+    expect(app.find('App').length).toEqual(1);
   });
 
-  it('Now rows are rendered', function () {
-    expect(app.find('.table-row').length).toEqual(1);
-    expect(app.find('.table-row').first().text()).toEqual('No Data Available');
-  });
-});
-
-describe('Checking App Data Page Navigation', () => {
-  let app = mount(<App />),
-      input = app.find('SearchBox input'),
-      button = app.find('SearchBox button');
-
-  input.simulate('change', {
-    target: {
-      value: 'ender'
-    }
+  it('Athena is selected as the default company symbol', () => {
+    expect(app.find('Select').first().prop('value')).toEqual('ATHN');
   });
 
-  button.simulate('click');
-
-  before(() => {
-    app.find('DataGrid .next-page').first().simulate('click');
+  it('Opening and Closing Areas alone are rendered on the chart', () => {
+    expect(app.state().showOpening).toEqual(true);
+    expect(app.state().showClosing).toEqual(true);
+    expect(app.state().showHighest).toEqual(false);
+    expect(app.state().showLowest).toEqual(false);
   });
 
-  it('Next Page rendered', () => {
-    let tableRows = app.find('TableRow');
+  it('Opening, Closing and Highest Areas are rendered on the chart, when "Show Highest" is enabled', () => {
 
-    expect(tableRows.length).toEqual(mockData.page2.books.length);
-    expect(tableRows.find('td').length).toEqual(mockData.page2.books.length * 3);
-    expect(tableRows.at(0).find('td').at(1).text()).toEqual(mockData.page2.books[0].title);
+    app.find('.toolbox input').at(2).simulate('change', {
+      target: {
+        name: 'showHighest',
+        checked: true
+      }
+    });
+
+    expect(app.state().showOpening).toEqual(true);
+    expect(app.state().showClosing).toEqual(true);
+    expect(app.state().showHighest).toEqual(true);
+    expect(app.state().showLowest).toEqual(false);
   });
 
-  it('Previous Page rendered', function (done) {
-    this.timeout(4000);
-    app.find('DataGrid .prev-page').first().simulate('click');
+  it('Opening, Closing and Highest Areas are rendered on the chart, when "Show Highest" is enabled', () => {
+
+    app.find('.toolbox input').at(2).simulate('change', {
+      target: {
+        name: 'showHighest',
+        checked: true
+      }
+    });
+    app.find('.toolbox input').at(2).simulate('change', {
+      target: {
+        name: 'showLowest',
+        checked: true
+      }
+    });
+
+    expect(app.state().showOpening).toEqual(true);
+    expect(app.state().showClosing).toEqual(true);
+    expect(app.state().showHighest).toEqual(true);
+    expect(app.state().showLowest).toEqual(true);
+  });
+
+  it('Checking symbol fetch error scenario', (done) => {
+    app.unmount();
+    mock.reset();
+    mock.onGet('https://api.iextrading.com/1.0/ref-data/symbols').reply(() => {
+      return [500];
+    });
+    app.mount();
 
     setTimeout(() => {
-      let tableRows = app.find('TableRow');
+      expect(app.state().error).toEqual(true);
+      done();
+    }, 2000);
+  });
 
-      expect(tableRows.length).toEqual(mockData.page1.books.length);
-      expect(tableRows.find('td').length).toEqual(mockData.page1.books.length * 3);
-      expect(tableRows.at(0).find('td').at(1).text()).toEqual(mockData.page1.books[0].title);
+  it('Checking stock data fetch error scenario', (done) => {
+    app.unmount();
+    mock.reset();
+    mock.onGet('https://api.iextrading.com/1.0/ref-data/symbols').reply(() => {
+      return [200, mockData.companies];
+    });
+    mock.onGet('https://api.iextrading.com/1.0/stock/ATHN/chart/1m').reply(() => {
+      return [500];
+    });
+    app.mount();
+
+    setTimeout(() => {
+      expect(app.state().error).toEqual(true);
       done();
     }, 2000);
   });
 });
+
+// describe('Checking error scenarios', () => {
+//   mock.reset();
+//   mock.onGet('https://api.iextrading.com/1.0/stock/ATHN/chart/1m').reply(() => {
+//     return [500];
+//   });
+
+//   mock.onGet('https://api.iextrading.com/1.0/ref-data/symbols').reply(() => {
+//     return [500];
+//   });
+// });
