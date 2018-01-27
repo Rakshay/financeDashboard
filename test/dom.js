@@ -8,7 +8,8 @@ let doc = jsdom.jsdom('<!doctype html><html><body></body></html>'),
     win = doc.defaultView;
 
 global.document = doc;
-global.window = win;
+global.window = Object.assign({}, win, {localStorage: {}});
+global.localStorage = {};
 
 function propagateToGlobal (window) {
   for (let key in window) {

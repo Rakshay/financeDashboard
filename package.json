@@ -37,8 +37,10 @@
     "eslint": "^4.11.0",
     "eslint-plugin-react": "^7.5.1",
     "expect": "^21.2.1",
-    "jsdom": "^9.11.0",
+    "jsdom": "^9.12.0",
+    "jsdom-global": "^3.0.2",
     "mocha": "^4.0.1",
+    "mock-local-storage": "^1.0.5",
     "ncp": "^2.0.0",
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2",
@@ -62,12 +64,13 @@
     "fixLintErrors": "eslint . --ext .js --fix",
     "test": "mocha ./test/**/*-test.js",
     "testCoverage": "nyc --reporter=lcov npm test",
-    "build": "npm-run-all build:js build:css copy:favicon",
+    "build": "npm-run-all build:js build:css copy:favicon copy:serviceWorker",
     "build:js": "cross-env NODE_ENV=development webpack --progress --color",
     "buildDev:js": "cross-env NODE_ENV=development webpack --watch --progress --color",
     "build:css": "node-sass public/src/sass/index.scss public/assets/css/index.build.css --output-style compressed --importer node_modules/node-sass-import",
     "buildDev:css": "node-sass public/src/sass/index.scss public/assets/css/index.build.css --watch --importer node_modules/node-sass-import",
-    "copy:favicon": "ncp public/src/favicon.ico/ public/assets/favicon.ico"
+    "copy:favicon": "ncp public/src/favicon.ico/ public/assets/favicon.ico",
+    "copy:serviceWorker": "ncp public/src/js/service-worker.js/ public/assets/service-worker.js"
   },
   "nyc": {
     "exclude": [

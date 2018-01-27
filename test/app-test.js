@@ -73,9 +73,18 @@ describe('Checking App Rendering', function () {
     expect(app.state().showLowest).toEqual(true);
   });
 
+  it('Checking localStorage fetch', () => {
+    app.unmount();
+    mock.reset();
+    app.mount();
+
+    expect(app.state().error).toEqual(false);
+  });
+
   it('Checking symbol fetch error scenario', (done) => {
     app.unmount();
     mock.reset();
+    global.localStorage = {};
     mock.onGet('https://api.iextrading.com/1.0/ref-data/symbols').reply(() => {
       return [500];
     });
@@ -90,6 +99,7 @@ describe('Checking App Rendering', function () {
   it('Checking stock data fetch error scenario', (done) => {
     app.unmount();
     mock.reset();
+    global.localStorage = {};
     mock.onGet('https://api.iextrading.com/1.0/ref-data/symbols').reply(() => {
       return [200, mockData.companies];
     });
@@ -104,14 +114,3 @@ describe('Checking App Rendering', function () {
     }, 2000);
   });
 });
-
-// describe('Checking error scenarios', () => {
-//   mock.reset();
-//   mock.onGet('https://api.iextrading.com/1.0/stock/ATHN/chart/1m').reply(() => {
-//     return [500];
-//   });
-
-//   mock.onGet('https://api.iextrading.com/1.0/ref-data/symbols').reply(() => {
-//     return [500];
-//   });
-// });

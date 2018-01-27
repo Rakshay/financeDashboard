@@ -14,7 +14,7 @@ module.exports = () => {
     inject: 'body'
   }));
   plugins.push(new WebpackCleanupPlugin({
-    exclude: ['css/**/*', '**/*.html', 'favicon.ico']
+    exclude: ['css/**/*', '**/*.html', 'favicon.ico', 'service-worker.js']
   }));
 
   return {

@@ -10,5 +10,11 @@ if (typeof window !== 'undefined') {
       path: location.pathname
     };
     render(React.createElement(App, props), document.getElementById('reactView'));
+    document.querySelector('.app-loader').setAttribute('hidden', true);
   };
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('./assets/service-worker.js');
+  }
 }
